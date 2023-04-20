@@ -21,7 +21,6 @@ class ContactFormatter:
 
 
     def get_phone_numbers_formatted(self):
-        '''Приводим номера телефонов к единому формату.'''
         pattern = r"(\+7|8)?\s?\(?(\d{3}?)\)?[-\s]?(\d{3})[-\s]?(\d{2})-?(\d{2})(\s?)\(?([доб.]{4})?\s?(\d{4})?\)?"
         subst = r"+7(\2)\3-\4-\5\6\7\8"
         for person in self.get_names_formatted():
@@ -31,7 +30,6 @@ class ContactFormatter:
 
 
     def join_and_remove_dubles(self):
-        '''Объединяем дублирующиеся записи о человеке.'''
         for person in self.get_phone_numbers_formatted():
             for next_person in self.get_phone_numbers_formatted():
                 if person[0] in next_person[0]:
